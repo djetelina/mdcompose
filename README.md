@@ -33,6 +33,7 @@ docker-compose.local.yaml
 docker-compose.personal.yaml
 ```
 
-You can generate the file by using `mdcompose init <file1> <file2>`
+You can generate the file by using `mdcompose init <file1> <file2>` (the default
+compose file is added automatically).
 
 More options to come soon!
