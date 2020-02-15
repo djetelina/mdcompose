@@ -1,0 +1,28 @@
+#!/bin/sh
+
+COMMAND="docker-compose "
+
+if test -f ".mdcompose"; then
+  # shellcheck disable=SC2039
+  while IFS= read -r line || [[ -n "$line" ]]
+  do
+    COMMAND="$COMMAND -f $line"
+  done < ".mdcompose"
+else
+  if [ "$1" = "init" ]; then
+    shift
+    FILE_CONTENTS="docker-compose.yaml"
+    for file in "$@"
+    do
+      FILE_CONTENTS="$FILE_CONTENTS\n$file"
+    done
+
+    echo "$FILE_CONTENTS" > ".mdcompose"
+    echo ".mdcompose file created"
+    exit 0
+  fi
+fi
+
+COMMAND="$COMMAND $*"
+
+echo $COMMAND
