@@ -8,6 +8,9 @@ if test -f ".mdcompose"; then
   do
     COMMAND="$COMMAND -f $line"
   done < ".mdcompose"
+  COMMAND="$COMMAND $*"
+
+  exec $COMMAND
 else
   if [ "$1" = "init" ]; then
     shift
@@ -20,9 +23,7 @@ else
     echo "$FILE_CONTENTS" > ".mdcompose"
     echo ".mdcompose file created"
     exit 0
+  else
+    echo ".mdcompose file is missing, try running 'mdcompose init <file>'"
   fi
 fi
-
-COMMAND="$COMMAND $*"
-
-echo $COMMAND

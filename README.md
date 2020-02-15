@@ -5,7 +5,9 @@ regular basis a bit less tiresome.
 
 ## Installation
 
-TODO ;)
+```shell script
+sudo curl https://raw.githubusercontent.com/iScrE4m/mdcompose/master/mdcompose > /usr/local/bin/mdcompose && sudo chmod +x /usr/local/bin/mdcompose
+```
 
 ## Usage
 
